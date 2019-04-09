@@ -35,3 +35,44 @@ rear++;
 queue[rear]=value;
 }
 }
+void display()
+{
+int i;
+if(rear==-1)
+{
+printf("queue--empty");
+}
+else
+{
+for(i=front;i<=rear;i++)
+{
+printf("%d\t",queue[i]);
+}
+}
+}
+void calc()
+{
+int total_distance=0,d,i;
+int current_pos,prev_pos;
+printf("\n");
+printf("enter prev pos:");
+scanf("%d",&prev_pos);
+printf("\n");
+printf("enter current pos");
+scanf("%d",&current_pos);
+d=current_pos-queue[front];
+if(d<0)
+total_distance=-d;
+else
+total_distance=d;
+for(i=front;i<rear;i++)
+{
+d=queue[i]-queue[i+1];
+if(d<0)
+d=-d;
+total_distance=total_distance + d;
+}
+printf("\a");
+printf("distance=%d",total_distance);
+getch();
+}
